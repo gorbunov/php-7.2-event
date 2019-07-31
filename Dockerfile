@@ -12,11 +12,11 @@ RUN apt-get update && apt-get install -y \
     software-properties-common language-pack-en-base && LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
 RUN apt-get update && apt-get -y install \
     git-core ntp ntpdate build-essential autoconf libtool libtool-bin automake uuid-dev pkg-config libssl-dev \
-    php7.2-dev php7.2-opcache php7.2-xml php7.2-cli php7.2-common php7.2-json php7.2-mysql php7.2-readline php7.2-zip php7.0-curl php7.2-mbstring php7.2-gmp \
+    php7.3-dev php7.3-opcache php7.3-xml php7.3-cli php7.3-common php7.3-json php7.3-mysql php7.3-readline php7.3-zip php7.3-curl php7.3-mbstring php7.3-gmp \
     php-xdebug \
     libevent-dev libevent-* wget tar
 RUN yes '' | pecl install event
-RUN echo "extension=event.so" > /etc/php/7.0/mods-available/event.ini
+RUN echo "extension=event.so" > /etc/php/7.3/mods-available/event.ini
 RUN phpenmod event
 RUN mkdir -p /mnt/daemon
 RUN apt-get install -y unzip curl
